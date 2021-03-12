@@ -1,3 +1,5 @@
+
+
 const Header = (title, date, temp) => {
   // TASK 1
   // ---------------------
@@ -11,6 +13,29 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+
+//define new elements:
+const divHeader = document.createElement('div');
+const spanDate = document.createElement('span');
+const titleH = document.createElement('h1');
+const spanTemp = document.createElement('span');
+
+//structure new elements:
+spanDate.appendChild(divHeader);
+titleH.appendChild(divHeader);
+spanTemp.appendChild(divHeader);
+
+//add classes
+divHeader.classList.add('header');
+divHeader.classList.add('date');
+divHeader.classList.add('temp');
+
+//set text content
+spanDate.textContent = `${date}`;
+titleH.textContent = `${title}`;
+spanTemp.textContent = `${temp}`;
+
+return divHeader;
 }
 
 const headerAppender = (selector) => {
@@ -21,5 +46,8 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 }
+
+
+
 
 export { Header, headerAppender }
