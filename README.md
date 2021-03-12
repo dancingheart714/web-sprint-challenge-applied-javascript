@@ -39,10 +39,10 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 Your must complete all the following steps:
 
-- [ ] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
-- [ ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
-- [ ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [x ] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
+- [x ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
+- [x ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
+- [x ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
 **Important Notes:**
 
@@ -75,7 +75,16 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+    The DOM (document object model) is a platform that lets us change structure, style and content to the html document
+
 2. What is an event?
+    An event is something that happens as a result of the user performing some sort of action
+
 3. What is an event listener?
+    Adding an event listener helps control how an event reacts to bubbling; we creeate an event listener function that says "hey, when the user does this I want you to respond by doing this" (ie clicking a button)
+
 4. Why would we convert a NodeList into an Array?
+    When we want to use an array method that won't work with a node; it would provide flexibility and features of an array that it wouldn't otherwise have
+
 5. What is a component?
+    A component is repeatable groups of statements that tell the computer what to get, use, do; it keeps us from having to re-type code over and over

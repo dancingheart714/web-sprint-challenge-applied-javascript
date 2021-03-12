@@ -1,4 +1,4 @@
-import { createBroadcastChannel } from "msw/lib/types/utils/createBroadcastChannel"
+import axios from "axios";
 
 const Card = (article) => {
   // TASK 5
@@ -19,12 +19,12 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
-
+  const { headline, authorName, authorPhoto } = article;
   // define new elements
   const cardDiv = document.createElement('div');
   const headlineDiv = document.createElement('div');
   const authorDiv = document.createElement('div');
-  const imgContain = document.createElement('image');
+  const imgContain = document.createElement('img');
   const imageAuthor = document.createElement('div');
   const spanName = document.createElement('span');
 
@@ -32,20 +32,25 @@ const Card = (article) => {
   cardDiv.appendChild(headlineDiv);
   cardDiv.appendChild(authorDiv);
   authorDiv.appendChild(imageAuthor);
-  imgContain.appendChild(image);
   authorDiv.appendChild(spanName);
+  imageAuthor.appendChild(imgContain);
 
   // add classes
   cardDiv.classList.add('card');
   headlineDiv.classList.add('headline');
   authorDiv.classList.add('author');
-  imgContain.classList.add('img-container');
+  imageAuthor.classList.add('img-container');
 
   //set text content
-  headlineDiv.textContent = `${article.headline}`;
-  authorDiv.textContent = `${article.author}`;
-  imageAuthor.textContent = `${article.authorPhoto}`;
-  spanName.textContent = `${article.authorName}`;
+  headlineDiv.textContent = headline;
+  imgContain.src = authorPhoto;
+  spanName.textContent = authorName;
+
+  //add event listener
+  cardDiv.addEventListener ('click', () =>
+  console.log(headline) );
+
+  return cardDiv
 
 }
 
@@ -58,6 +63,24 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  const mainDiv = document.querySelector(selector);
+axios
+.get('https://lambda-times-api.herokuapp.com/articles')
+.then(res => {
+  let link = res.data.articles;
+  link.javascript.forEach(item => {
+    mainDiv.appendChild(Card(item));
+  })
+  link.bootstrap.forEach(item => {
+    mainDiv.appendChild(Card(item));
+  })
+  link.technology.forEach(item => mainDiv.appendChild(Card(item)))
+
+  link.jquery.forEach(item => mainDiv.appendChild(Card(item)))
+
+  link.node.forEach(item => mainDiv.appendChild(Card(item)))
+})
+.catch(error => console.log(error))
 }
 
 export { Card, cardAppender }
