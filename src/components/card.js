@@ -46,13 +46,11 @@ const Card = (article) => {
   imgContain.src = authorPhoto;
   spanName.textContent = authorName;
 
-  //add event listener
-  cardDiv.addEventListener ('click', () =>
-  console.log(headline) );
 
   return cardDiv
-
 }
+
+
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -84,3 +82,9 @@ axios
 }
 
 export { Card, cardAppender }
+
+
+
+     
+     
+
