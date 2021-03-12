@@ -1,3 +1,5 @@
+import { createBroadcastChannel } from "msw/lib/types/utils/createBroadcastChannel"
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,34 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  // define new elements
+  const cardDiv = document.createElement('div');
+  const headlineDiv = document.createElement('div');
+  const authorDiv = document.createElement('div');
+  const imgContain = document.createElement('image');
+  const imageAuthor = document.createElement('div');
+  const spanName = document.createElement('span');
+
+  // set up structure
+  cardDiv.appendChild(headlineDiv);
+  cardDiv.appendChild(authorDiv);
+  authorDiv.appendChild(imageAuthor);
+  imgContain.appendChild(image);
+  authorDiv.appendChild(spanName);
+
+  // add classes
+  cardDiv.classList.add('card');
+  headlineDiv.classList.add('headline');
+  authorDiv.classList.add('author');
+  imgContain.classList.add('img-container');
+
+  //set text content
+  headlineDiv.textContent = `${article.headline}`;
+  authorDiv.textContent = `${article.author}`;
+  imageAuthor.textContent = `${article.authorPhoto}`;
+  spanName.textContent = `${article.authorName}`;
+
 }
 
 const cardAppender = (selector) => {
